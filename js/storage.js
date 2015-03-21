@@ -38,7 +38,7 @@ var almacenamiento = {
             alert(r.rows.length);},function(err){
                 alert('Error: '+ err.code);
             });
-        },
+        }
         function errorCB(err){
             alert('Error: '+ err.code);
         }
