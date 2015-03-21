@@ -39,7 +39,7 @@ var fn = {
                 var ha = $('#nr2 ul:eq(0) li:eq(1) select').val();
                 var pr = $('#nr2 ul:eq(0) li:eq(2) select').val();
                 var di = $('#nr2 ul:eq(0) li:eq(3) select').val();
-                if(connection.isConnected)
+                if(connection.isConnected())
                     alert(th + ha + pr + di);
                 else
                     almacenamiento.reservar(th,ha,pr,di);
