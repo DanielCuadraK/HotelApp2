@@ -5,4 +5,4 @@ var connection = {
         else
             return false;
     }
-}
+};
