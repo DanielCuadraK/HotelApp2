@@ -97,7 +97,7 @@ var almacenamiento = {
                 var l = r.rows.length;
                 var hist = $('#historial .ui-content').html('');
                 for(i=0;i<l;i++){
-                    hist.append('<details><summary>'+r.rows.item(i).fecha+'</summary><strong>Tipo Habitación:</strong> '+r.rows.item(i).th+'<br><strong>Habitaciones:</strong> '+r.rows.item(i).ha+'<br><strong>Personas:</strong> '+r.rows.item(i).pr+'<br><strong>Días:</strong> '+r.rows.item(i).di+'<br></details>');
+                    hist.append('<details><summary>'+r.rows.item(i).date+'</summary><strong>Tipo Habitación:</strong> '+r.rows.item(i).th+'<br><strong>Habitaciones:</strong> '+r.rows.item(i).ha+'<br><strong>Personas:</strong> '+r.rows.item(i).pr+'<br><strong>Días:</strong> '+r.rows.item(i).di+'<br></details>');
                 }    
             
             },
