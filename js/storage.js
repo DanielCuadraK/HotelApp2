@@ -90,20 +90,15 @@ var almacenamiento = {
 },
     leerHistorial: function(){
         function populateDB(tx){
-            tx.executeSql('SELECT * FROM historial',[],function(tx2,r){
-            alert(r.rows.length);},function(err){
-                alert('Error: '+ err.code);
-            });
+            tx.executeSql("SELECT * FROM historial",[],successCB,errorCB);
         }
         function errorCB(err){
-            alert('Error: '+ err.code);
+            alert('Error: '+err.code);
         }
-        function sucessDB(){
-        //función en caso de que sea satisfactorio
-            alert('Si entré a historial');
-            var x = null;
+        function successCB(tx, results){
+            alert(r.rows.length);
         }
-        almacenamiento.db.transaction(populateDB,errorCB,successCB);
+        almacenamiento.db.transaction(populateDB,errorCB);
     }
         
 };
