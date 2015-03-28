@@ -47,10 +47,10 @@ var almacenamiento = {
             var x = null;
         }
     },
-    guardarHistorial: function(th,ha,pr,di){
+    guardarHistorial: function(th,ha,pr,di,fecha){
         function populateDB(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id, date, th, ha, pr, di)');
-        tx.executeSql('INSERT INTO historial (th, ha, pr, di) VALUES ("'+th+'","'+ha+'","'+pr+'","'+di+'")');
+        tx.executeSql('INSERT INTO historial (date, th, ha, pr, di) VALUES ("'+fecha+'","'+th+'","'+ha+'","'+pr+'","'+di+'")');
     }
 
     // Transaction error callback
@@ -91,7 +91,14 @@ var almacenamiento = {
     leerHistorial: function(){
         function populateDB(tx){
             tx.executeSql('SELECT * FROM historial',[],function(tx2,r){
-            alert(r.rows.length);},function(err){
+                var l = r.rows.length;
+                var hist = $('#historial .ui-content').html('');
+                for(i=0;i<l;i++){
+                    hist.append('<details><summary>'+r.rows.item(i).fecha+'</summary><strong>Tipo Habitación:</strong> '+r.rows.item(i).th+'<br><strong>Habitaciones:</strong> '+r.rows.item(i).ha+'<br><strong>Personas:</strong> '+r.rows.item(i).pr+'<br><strong>Días:</strong> '+r.rows.item(i).di+'<br></details>');
+                }    
+            
+            },
+            function(err){
                 alert('Error: '+ err.code);
             });
         }
@@ -102,7 +109,7 @@ var almacenamiento = {
         //función en caso de que sea satisfactorio
             var x = null;
         }
-        almacenamiento.db.transaction(populateDB,errorCB,successCB);
+        almacenamiento.db.transaction(populateDB,errorCB,null);
     }
         
 };

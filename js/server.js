@@ -13,15 +13,15 @@ var server = {
         });
     },
     //envia al servidor los datos, y posteriormente se guarda en el historial
-    sendReserva: function(th,ha,pr,di){
+    sendReserva: function(th,ha,pr,di, fecha){
         $.mobile.loading('show');
         $.ajax({
             method: "POST",
             url: server.url,
-            data: {tipo: th, ha: ha, pr: pr, di: di}
+            data: {tipo: th, ha: ha, pr: pr, di: di, fecha: fecha}
         }).done(function(msg) {
             if(msg == 1) {
-                almacenamiento.guardarHistorial(th,ha,pr,di);
+                almacenamiento.guardarHistorial(th,ha,pr,di, fecha);
                 $.mobile.loading( 'hide' );
             }
         });
