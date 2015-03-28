@@ -50,7 +50,7 @@ var fn = {
         $('#nr1 ul:eq(0) li').tap(reserva.selectTH);
         $('#nr1 ul:eq(1) li:eq(1)').tap(reserva.siguiente);
         $('#nr2 ul:eq(1) li:eq(1)').tap(reserva.reservar);
-        $('#historial').tap(almacenamiento.leerReservas);
+        $('#historial').tap(almacenamiento.leerHistorial);
     }
 };
 //$(fn.ready);

@@ -23,7 +23,6 @@ var server = {
             if(msg == 1) {
                 almacenamiento.guardarHistorial(th,ha,pr,di);
                 $.mobile.loading( 'hide' );
-                //almacenamiento.borarReserva();
             }
         });
     }

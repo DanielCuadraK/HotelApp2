@@ -87,7 +87,23 @@ var almacenamiento = {
     }
         
         almacenamiento.db.transaction(populateDB, errorCB, successCB);
-}
+},
+    leerHistorial: function(){
+        function populateDB(tx){
+            tx.executeSql('SELECT * FROM historial',[],function(tx2,r){
+            alert(r.rows.length);},function(err){
+                alert('Error: '+ err.code);
+            });
+        }
+        function errorCB(err){
+            alert('Error: '+ err.code);
+        }
+        function sucessDB(){
+        //función en caso de que sea satisfactorio
+            var x = null;
+        }
+        almacenamiento.db.transaction(populateDB,errorCB,successCB);
+    }
         
 };
 
