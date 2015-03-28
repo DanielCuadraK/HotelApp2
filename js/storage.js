@@ -100,6 +100,7 @@ var almacenamiento = {
         }
         function sucessDB(){
         //función en caso de que sea satisfactorio
+            alert('Si entré a historial');
             var x = null;
         }
         almacenamiento.db.transaction(populateDB,errorCB,successCB);
