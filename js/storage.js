@@ -46,7 +46,48 @@ var almacenamiento = {
         //función en caso de que sea satisfactorio
             var x = null;
         }
+    },
+    guardarHistorial: function(th,ha,pr,di){
+        function populateDB(tx) {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id, th, ha, pr, di)');
+        tx.executeSql('INSERT INTO historial (th, ha, pr, di) VALUES ("'+th+'","'+ha+'","'+pr+'","'+di+'")');
     }
+
+    // Transaction error callback
+    //
+    function errorCB(tx, err) {
+        alert("Error processing SQL: "+err);
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+        window.location.href = '#home';
+        navigator.notification.alert('Reserva guardada en historial',null,'Guardado','Aceptar');
+    }
+        
+        almacenamiento.db.transaction(populateDB, errorCB, successCB);
+},
+        borarReserva: function(th,ha,pr,di){
+        function populateDB(tx) {
+        tx.executeSql('DELETE reservas');
+    }
+
+    // Transaction error callback
+    //
+    function errorCB(tx, err) {
+        alert("Error processing SQL: "+err);
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+        window.location.href = '#home';
+        navigator.notification.alert('ok',null,'Guardado','Aceptar');
+    }
+        
+        almacenamiento.db.transaction(populateDB, errorCB, successCB);
+}
         
 };
 
