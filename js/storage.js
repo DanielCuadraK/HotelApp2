@@ -50,7 +50,7 @@ var almacenamiento = {
     guardarHistorial: function(th,ha,pr,di,fecha){
         function populateDB(tx) {
             var d = new Date();
-            var fecha = d.getDay() + '/' + d.getMonth() + '/' + d.getFullYear();
+            var fecha = d.getDate() + '/' + (d.getMonth() +1) + '/' + d.getFullYear();
             alert(fecha);
         tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id, date, th, ha, pr, di)');
         tx.executeSql('INSERT INTO historial (date, th, ha, pr, di) VALUES ("'+fecha+'","'+th+'","'+ha+'","'+pr+'","'+di+'")');
