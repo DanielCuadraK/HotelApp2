@@ -18,10 +18,11 @@ var server = {
         $.ajax({
             method: "POST",
             url: server.url,
-            data: {th: th, ha: ha, pr: pr, di: di}
+            data: {th: tipo, ha: ha, pr: pr, di: di}
         }).done(function(msg) {
             if(msg == 1) {
                 almacenamiento.guardarHistorial(th,ha,pr,di);
+                $.mobile.loading( 'hide' );
                 //almacenamiento.borarReserva();
             }
         });
