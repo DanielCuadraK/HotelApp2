@@ -1,0 +1,27 @@
+<?php
+$obj;
+echo json_encode($obj);
+?>
+
+<script
+msg.parseJSON();
+>
+
+<script
+msg = JSON.parse(msg);
+
+
+    sendReserva: function(th,ha,pr,di){
+        $.mobile.loading('show');
+        $.ajax({
+            method: "POST",
+            url: server.url,
+            data: {tipo: th, ha: ha, pr: pr, di: di},
+            type: 'json'
+        }).done(function(msg) {
+            if(msg == 1) {
+                almacenamiento.guardarHistorial(th,ha,pr,di);
+                $.mobile.loading( 'hide' );
+            }
+        });
+    }

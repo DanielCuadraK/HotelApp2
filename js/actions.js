@@ -51,6 +51,7 @@ var fn = {
         $('#nr1 ul:eq(1) li:eq(1)').tap(reserva.siguiente);
         $('#nr2 ul:eq(1) li:eq(1)').tap(reserva.reservar);
         $('#home ul:eq(0) li:eq(1)').tap(almacenamiento.leerHistorial);
+        document.addEventListener('online',almacenamiento.leerReservas,false);
     }
 };
 //$(fn.ready);
