@@ -39,9 +39,8 @@ var fn = {
                 var ha = $('#nr2 ul:eq(0) li:eq(1) select').val();
                 var pr = $('#nr2 ul:eq(0) li:eq(2) select').val();
                 var di = $('#nr2 ul:eq(0) li:eq(3) select').val();
-                var fecha = d.getDay() + "/" + d.getMonth() + "/" + d.getYear();
                 if(connection.isConnected())
-                    server.sendReserva(th,ha,pr,di,fecha);
+                    server.sendReserva(th,ha,pr,di);
                 else
                     almacenamiento.reservar(th,ha,pr,di);
                 
